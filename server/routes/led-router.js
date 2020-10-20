@@ -1,5 +1,4 @@
 const express = require('express');
-
 const LedCtrl = require('../controllers/led-ctrl');
 
 const router = express.Router();
