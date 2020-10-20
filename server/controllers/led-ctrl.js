@@ -18,7 +18,33 @@ const getOne = async (req, res) => {
   }).catch((err) => console.error(err));
 };
 
-const createOne = (req, res) => {};
+const createOne = (req, res) => {
+  const { body } = req;
+
+  if (!body) {
+    return res.status(400).json({
+      success: false,
+      error: 'You must provide a body in order to create the led entity',
+    });
+  }
+
+  const led = new Led(body);
+
+  led
+    .save()
+    .then(() => {
+      return res.status(201).json({
+        success: true,
+        _id: led._id,
+      });
+    })
+    .catch((error) => {
+      return res.status(400).json({
+        success: false,
+        error,
+      });
+    });
+};
 
 const updateOne = async (req, res) => {
   const { body } = req;
@@ -26,7 +52,7 @@ const updateOne = async (req, res) => {
   if (!body)
     return res.status(400).json({
       success: false,
-      error: 'You must provide the body in order to perform the update',
+      error: 'You must provide a body in order to perform the led update',
     });
 
   Led.findOne({ _id: req.params._id }, (err, led) => {
