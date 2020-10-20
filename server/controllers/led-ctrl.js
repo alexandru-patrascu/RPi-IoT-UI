@@ -1,7 +1,14 @@
 const axios = require('axios');
 const Led = require('../models/led-model');
 
-const getAll = async (req, res) => {};
+const getAll = async (req, res) => {
+  await Led.find({}, (err, leds) => {
+    if (err || !!leds.length)
+      return res.status(404).json({ success: false, error: 'Leds not found' });
+
+    return res.status(200).json({ success: true, data: leds });
+  }).catch((err) => console.error(err));
+};
 
 const getOne = async (req, res) => {};
 
