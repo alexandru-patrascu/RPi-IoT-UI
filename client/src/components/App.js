@@ -1,26 +1,17 @@
-import React from 'react';
-import './App.css';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import LoadingIndicator from './LoadingIndicator';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+  const [leds, setLeds] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // await Get Leds from DB
+  }, []);
+
+  if (isLoading) return <LoadingIndicator />;
+
+  return <div className="App">App Test</div>;
+};
 
 export default App;
