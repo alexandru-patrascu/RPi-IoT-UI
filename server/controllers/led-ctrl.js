@@ -10,7 +10,14 @@ const getAll = async (req, res) => {
   }).catch((err) => console.error(err));
 };
 
-const getOne = async (req, res) => {};
+const getOne = async (req, res) => {
+  await Led.findOne({ _id: req.params._id }, (err, led) => {
+    if (err || !led)
+      return res.status(404).json({ success: false, error: `Led not found` });
+
+    return res.status(200).json({ success: true, data: led });
+  }).catch((err) => console.error(err));
+};
 
 const createOne = (req, res) => {};
 
