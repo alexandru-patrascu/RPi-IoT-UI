@@ -3,10 +3,10 @@ const LedCtrl = require('../controllers/led-ctrl');
 
 const router = express.Router();
 
-router.get('/leds', LedCtrl.getLeds);
-router.get('/led/:_id', LedCtrl.getLedById);
-router.post('/led', LedCtrl.createLed);
-router.put('/led/:_id', LedCtrl.updateLed);
-router.delete('/led/:_id', LedCtrl.deleteLed);
+router.get('/leds', LedCtrl.getAll);
+router.get('/led/:_id', LedCtrl.getOne);
+router.post('/led', LedCtrl.createOne);
+router.put('/led/:_id', LedCtrl.updateOne);
+router.delete('/led/:_id', LedCtrl.deleteOne);
 
 module.exports = router;
