@@ -15,16 +15,12 @@ const App = () => {
   if (isLoading) return <LoadingIndicator />;
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
+    <Layout className="layout-container">
       <SideBar />
       <Layout>
         <Header />
-        <Content style={{ backgroundColor: 'white' }}>
-          <div style={{ padding: 20 }}>Bill is a cat.</div>
-        </Content>
-        <Footer
-          style={{ textAlign: 'center', padding: 0, backgroundColor: 'white' }}
-        >
+        <Content className="content">Bill is a cat.</Content>
+        <Footer className="footer">
           <p>
             <b>Raspberry Pi CMS</b> ©2020
           </p>

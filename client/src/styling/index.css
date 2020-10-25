@@ -19,3 +19,18 @@ body {
   height: 60px;
   text-align: center;
 }
+
+.layout-container {
+  min-height: 100vh;
+}
+
+.layout-container .content {
+  background-color: white;
+  padding: 20px;
+}
+
+.layout-container .footer {
+  background-color: white;
+  text-align: center;
+  padding: 0;
+}

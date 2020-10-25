@@ -12,12 +12,13 @@ const { Sider } = Layout;
 const SideBar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selectedKey, setSelectedKey] = useState(['/dashboard']);
+
   const handleCollapse = (collapsed) => setIsCollapsed(collapsed);
 
   const handleItemClick = (e) => {
     const { key, keyPath } = e;
     setSelectedKey(keyPath);
-    console.log('v', e);
+
     // TODO: Redirect to key
   };
 
