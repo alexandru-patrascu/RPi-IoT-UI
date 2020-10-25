@@ -12,25 +12,44 @@ const { Sider } = Layout;
 
 const SideBar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [selectedKey, setSelectedKey] = useState(['/dashboard']);
   const handleCollapse = (collapsed) => setIsCollapsed(collapsed);
+
+  const handleItemClick = (e) => {
+    const { key, keyPath } = e;
+    setSelectedKey(keyPath);
+    console.log('v', e);
+    // TODO: Redirect to key
+  };
 
   return (
     <Sider collapsible collapsed={isCollapsed} onCollapse={handleCollapse}>
       <div className="logo">
         <DesktopOutlined />
       </div>
-      <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-        <Item key="1" icon={<PieChartOutlined />}>
+      <Menu theme="dark" mode="inline" defaultSelectedKeys={selectedKey}>
+        <Item
+          key="/dashboard"
+          icon={<PieChartOutlined />}
+          onClick={handleItemClick}
+        >
           Dashboard
         </Item>
-        <SubMenu key="sub1" icon={<UserOutlined />} title="Bedroom">
-          <Item key="2">Tom</Item>
-          <Item key="3">Bill</Item>
-          <Item key="4">Alex</Item>
+        <SubMenu icon={<UserOutlined />} title="Bedroom">
+          <Item key="/bedroom/overview" onClick={handleItemClick}>
+            Overview
+          </Item>
+          <Item key="/bedroom/lights" onClick={handleItemClick}>
+            Lights
+          </Item>
         </SubMenu>
-        <SubMenu key="sub2" icon={<TeamOutlined />} title="Kitchen">
-          <Item key="5">Team 1</Item>
-          <Item key="6">Team 2</Item>
+        <SubMenu icon={<TeamOutlined />} title="Kitchen">
+          <Item key="/kitchen/overview" onClick={handleItemClick}>
+            Overview
+          </Item>
+          <Item key="/kitchen/lights" onClick={handleItemClick}>
+            Lights
+          </Item>
         </SubMenu>
       </Menu>
     </Sider>
