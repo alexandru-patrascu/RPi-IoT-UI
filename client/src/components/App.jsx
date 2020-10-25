@@ -1,19 +1,32 @@
 import { Layout } from 'antd';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import { getLeds } from '../handlers/ledHandlers';
 import LoadingIndicator from './LoadingIndicator';
 import SideBar from './SideBar';
 
 const { Header, Content, Footer } = Layout;
 
 const App = () => {
+  const [leds, setLeds] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const fetchLeds = useCallback(async () => {
+    try {
+      const response = await getLeds;
+      setLeds(response);
+    } catch (err) {
+      console.error('Error fetching leds', err);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
   useEffect(() => {
-    setIsLoading(false);
+    fetchLeds();
   }, []);
 
   if (isLoading) return <LoadingIndicator />;
-
+  console.log('leds', leds);
   return (
     <Layout className="layout-container">
       <SideBar />
