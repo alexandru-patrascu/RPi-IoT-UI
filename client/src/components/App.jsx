@@ -31,13 +31,10 @@ const App = () => {
     <Layout className="layout-container">
       <SideBar />
       <Layout>
-        <Header />
         <Content className="content">Bill is a cat.</Content>
         <Footer className="footer">
-          <p>
-            <b>Raspberry Pi CMS</b> ©2020
-          </p>
-          <p>Created by Alexandru Patrascu</p>
+          <b>Raspberry Pi CMS © 2020 </b> <br />
+          Created by Alexandru Patrascu
         </Footer>
       </Layout>
     </Layout>
