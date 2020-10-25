@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import LoadingIndicator from './LoadingIndicator';
 import SideBar from './SideBar';
 
-const { Content, Footer } = Layout;
+const { Header, Content, Footer } = Layout;
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,6 +18,7 @@ const App = () => {
     <Layout style={{ minHeight: '100vh' }}>
       <SideBar />
       <Layout>
+        <Header />
         <Content style={{ backgroundColor: 'white' }}>
           <div style={{ padding: 20 }}>Bill is a cat.</div>
         </Content>

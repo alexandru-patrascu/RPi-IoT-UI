@@ -1,8 +1,7 @@
 import {
-  DesktopOutlined,
+  ClusterOutlined,
   PieChartOutlined,
-  TeamOutlined,
-  UserOutlined,
+  TableOutlined,
 } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import React, { useState } from 'react';
@@ -25,7 +24,7 @@ const SideBar = () => {
   return (
     <Sider collapsible collapsed={isCollapsed} onCollapse={handleCollapse}>
       <div className="logo">
-        <DesktopOutlined />
+        <img src="/rpi-logo.png" alt="raspberry-pi-logo" width={64} />
       </div>
       <Menu theme="dark" mode="inline" defaultSelectedKeys={selectedKey}>
         <Item
@@ -35,7 +34,7 @@ const SideBar = () => {
         >
           Dashboard
         </Item>
-        <SubMenu icon={<UserOutlined />} title="Bedroom">
+        <SubMenu icon={<ClusterOutlined />} title="Bedroom">
           <Item key="/bedroom/overview" onClick={handleItemClick}>
             Overview
           </Item>
@@ -43,7 +42,7 @@ const SideBar = () => {
             Lights
           </Item>
         </SubMenu>
-        <SubMenu icon={<TeamOutlined />} title="Kitchen">
+        <SubMenu icon={<TableOutlined />} title="Kitchen">
           <Item key="/kitchen/overview" onClick={handleItemClick}>
             Overview
           </Item>

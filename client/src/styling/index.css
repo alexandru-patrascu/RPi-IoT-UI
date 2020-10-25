@@ -16,7 +16,6 @@ body {
 }
 
 .logo {
-  height: 28px;
-  margin: 16px;
-  color: white;
+  height: 60px;
+  text-align: center;
 }
