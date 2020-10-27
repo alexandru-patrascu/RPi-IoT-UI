@@ -1,2 +1,2 @@
-# raspberry-pi-cms
+# rpi-cms
 Raspberry PI CMS using React + NodeJS + MongoDB
