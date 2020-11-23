@@ -16,7 +16,7 @@ const App = () => {
       const response = await getLeds;
       setLeds(response);
     } catch (err) {
-      console.error('Error fetching leds', err);
+      console.error('An error occurred while fetching leds', err);
     } finally {
       setIsLoading(false);
     }
@@ -24,6 +24,8 @@ const App = () => {
 
   useEffect(() => {
     fetchLeds();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (isLoading) return <LoadingIndicator />;
