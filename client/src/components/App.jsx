@@ -1,6 +1,7 @@
 import { Layout } from 'antd';
 import React, { useCallback, useEffect, useState } from 'react';
 import { getLeds } from '../handlers/ledHandlers';
+import LedsTable from './LedsTable';
 import LoadingIndicator from './LoadingIndicator';
 import SideBar from './SideBar';
 
@@ -31,7 +32,12 @@ const App = () => {
     <Layout className="layout-container">
       <SideBar />
       <Layout>
-        <Content className="content">Bill is a cat.</Content>
+        <Header>Header Content</Header>
+
+        <Content className="content">
+          <LedsTable leds={leds} />
+        </Content>
+
         <Footer className="footer">
           <b>Raspberry Pi CMS © 2020 </b> <br />
           Created by Alexandru Patrascu
