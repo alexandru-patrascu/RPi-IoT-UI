@@ -82,9 +82,9 @@ const updateOne = async (req, res) => {
 
 const deleteOne = async (req, res) => {
   await Led.findOneAndDelete({ _id: req.params._id }, (error, led) => {
-    if (err || !led) return res.status(404).json({ success: false, error });
+    if (error || !led) return res.status(404).json({ success: false, error });
 
-    return res.status(200).json({ success: true, data: led });
+    return res.status(200).json({ success: true });
   }).catch(console.error);
 };
 
