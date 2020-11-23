@@ -1,10 +1,10 @@
 import { Layout } from 'antd';
 import React, { useCallback, useEffect, useState } from 'react';
 import { getLeds } from '../handlers/ledHandlers';
+import { LedsContext } from '../helpers';
 import LedsTable from './LedsTable';
 import LoadingIndicator from './LoadingIndicator';
 import SideBar from './SideBar';
-
 const { Header, Content, Footer } = Layout;
 
 const App = () => {
@@ -37,7 +37,9 @@ const App = () => {
         <Header>Header Content</Header>
 
         <Content className="content">
-          <LedsTable leds={leds} />
+          <LedsContext.Provider value={{ leds, setLeds }}>
+            <LedsTable />
+          </LedsContext.Provider>
         </Content>
 
         <Footer className="footer">
