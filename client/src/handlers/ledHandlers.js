@@ -15,8 +15,8 @@ const getLeds = new Promise((resolve, reject) =>
 );
 
 const toggleLed = (_id) =>
-  new Promise((resolve, reject) => {
-    fetch(`http://localhost:8000/api/toggle-led${_id}`, {
+  new Promise((resolve, reject) =>
+    fetch(`http://localhost:8000/api/toggle-led/${_id}`, {
       method: 'PUT',
       headers: {
         Accept: 'application/json',
@@ -24,8 +24,7 @@ const toggleLed = (_id) =>
       },
     })
       .then((res) => resolve(res.status))
-      .catch(reject);
-  });
-export default toggleLed;
+      .catch(reject)
+  );
 
 export { getLeds, toggleLed };

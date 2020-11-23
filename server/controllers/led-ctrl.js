@@ -100,7 +100,7 @@ const toggleLed = async (req, res) =>
     try {
       axios({
         method: 'post',
-        url: `http://192.168.1.119:5000/gpio/led/${led.gpioPin}/${led.status}`,
+        url: `http://192.168.100.8:5000/gpio/led/${led.gpioPin}/${led.status}`,
         data: {},
       });
     } catch (err) {

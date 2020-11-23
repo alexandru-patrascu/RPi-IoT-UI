@@ -32,9 +32,12 @@ const App = () => {
     <Layout className="layout-container">
       <SideBar />
       <Layout>
+        <Header>Header Content</Header>
+
         <Content className="content">
           <LedsTable leds={leds} />
         </Content>
+
         <Footer className="footer">
           <b>Raspberry Pi CMS © 2020 </b> <br />
           Created by Alexandru Patrascu

@@ -1,4 +1,4 @@
-import { Switch } from 'antd';
+import { message, Switch } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { toggleLed } from '../handlers/ledHandlers';
 
@@ -8,7 +8,6 @@ const ToggleLed = (props) => {
 
   useEffect(() => {
     setChecked(status);
-    // props.status = !status
   }, [status, setChecked]);
 
   const handleSwitch = async (value) => {
