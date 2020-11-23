@@ -10,11 +10,6 @@ export const columns = [
     sorter: (a, b) => a.name.localeCompare(b.name),
   },
   {
-    title: 'Id',
-    dataIndex: '_id',
-    key: '_id',
-  },
-  {
     title: 'Gpio',
     dataIndex: 'gpioPin',
     key: 'gpioPin',
@@ -39,15 +34,15 @@ export const columns = [
     },
   },
   {
-    title: 'Action',
-    key: 'action',
+    title: 'Toggle',
+    key: 'toggle',
     align: 'center',
-    render: (props) => (
-      <div key={props._id}>
-        <ToggleLed {...props} />
-        &nbsp;
-        <DeleteLed {...props} />
-      </div>
-    ),
+    render: (props) => <ToggleLed {...props} />,
+  },
+  {
+    title: 'Delete',
+    key: 'delete',
+    align: 'center',
+    render: (props) => <DeleteLed {...props} />,
   },
 ];
