@@ -1,8 +1,8 @@
 import { UserAddOutlined } from '@ant-design/icons';
 import { Button, Card, Table, Tag } from 'antd';
 import React, { useContext } from 'react';
-import { columns } from '../config/table-config';
-import { LedsContext } from '../helpers';
+import { columns } from '../../config/table-config';
+import { LedsContext } from '../../helpers';
 
 const CardTitle = ({ count }) => (
   <b>
@@ -18,10 +18,10 @@ const CardExtra = ({ handleClick }) => (
 );
 
 const LedsTable = () => {
-  const { leds } = useContext(LedsContext);
+  const { leds, setShowAddLedModal } = useContext(LedsContext);
   const title = <CardTitle count={leds.length} />;
 
-  const handleAddLed = () => console.log('handle add led');
+  const handleAddLed = () => setShowAddLedModal(true);
 
   return (
     <Card title={title} extra={<CardExtra handleClick={handleAddLed} />}>

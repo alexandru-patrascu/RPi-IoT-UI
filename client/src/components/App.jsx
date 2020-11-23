@@ -2,13 +2,14 @@ import { Layout } from 'antd';
 import React, { useCallback, useEffect, useState } from 'react';
 import { getLeds } from '../handlers/ledHandlers';
 import { LedsContext } from '../helpers';
-import LedsTable from './LedsTable';
+import { AddLedModal, LedsTable } from './leds';
 import LoadingIndicator from './LoadingIndicator';
 import SideBar from './SideBar';
 const { Header, Content, Footer } = Layout;
 
 const App = () => {
   const [leds, setLeds] = useState([]);
+  const [showAddLedModal, setShowAddLedModal] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchLeds = useCallback(async () => {
@@ -37,8 +38,11 @@ const App = () => {
         <Header>Header Content</Header>
 
         <Content className="content">
-          <LedsContext.Provider value={{ leds, setLeds }}>
+          <LedsContext.Provider
+            value={{ leds, setLeds, showAddLedModal, setShowAddLedModal }}
+          >
             <LedsTable />
+            <AddLedModal />
           </LedsContext.Provider>
         </Content>
 

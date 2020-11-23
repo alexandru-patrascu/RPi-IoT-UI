@@ -1,7 +1,7 @@
 import { message, Switch } from 'antd';
 import React, { useContext } from 'react';
-import { toggleLed } from '../handlers/ledHandlers';
-import { LedsContext } from '../helpers';
+import { toggleLed } from '../../handlers/ledHandlers';
+import { LedsContext } from '../../helpers';
 
 const ToggleLed = (props) => {
   let { _id, name, status } = props;
