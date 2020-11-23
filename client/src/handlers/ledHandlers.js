@@ -1,10 +1,12 @@
+const headers = {
+  Accept: 'application/json',
+  'Content-Type': 'application/json',
+};
+
 const getLeds = new Promise((resolve, reject) =>
   fetch('http://localhost:8000/api/leds', {
     method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-    },
+    headers,
   })
     .then(async (res) => {
       const response = await res.json();
@@ -18,10 +20,7 @@ const toggleLed = (_id) =>
   new Promise((resolve, reject) =>
     fetch(`http://localhost:8000/api/toggle-led/${_id}`, {
       method: 'PUT',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
+      headers,
     })
       .then((res) => resolve(res.status))
       .catch(reject)
