@@ -1,6 +1,5 @@
-import React from 'react';
 import { Tag } from 'antd';
-
+import React from 'react';
 import DeleteLed from '../components/DeleteLed';
 import ToggleLed from '../components/ToggleLed';
 
@@ -31,6 +30,7 @@ export const columns = [
       let color = 'red';
       let text = 'OFF';
 
+      // Change text & color if status is true or false
       if (status) {
         color = 'green';
         text = 'ON';
