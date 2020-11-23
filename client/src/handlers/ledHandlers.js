@@ -26,4 +26,17 @@ const toggleLed = (_id) =>
       .catch(reject)
   );
 
-export { getLeds, toggleLed };
+const createLed = (led) =>
+  new Promise((resolve, reject) =>
+    fetch(`http://localhost:8000/api/led`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(led),
+    })
+      .then(async (res) => {
+        const response = await res.json();
+        return resolve(response);
+      })
+      .catch(reject)
+  );
+export { getLeds, toggleLed, createLed };

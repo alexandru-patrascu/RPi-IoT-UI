@@ -25,14 +25,15 @@ const createOne = (req, res) => {
       error: 'You must provide a body in order to create the led entity',
     });
 
+  body.status = false;
   const led = new Led(body);
 
   led
     .save()
-    .then(() =>
-      res.status(201).json({
+    .then((data) =>
+      res.status(200).json({
         success: true,
-        _id: led._id,
+        data,
       })
     )
     .catch((error) =>
