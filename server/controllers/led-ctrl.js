@@ -104,7 +104,10 @@ const toggleLed = async (req, res) =>
         data: {},
       });
     } catch (err) {
-      console.error('err', err);
+      console.error(
+        'An error occurred while toggling the led. Please try again later!',
+        err
+      );
     }
 
     led
@@ -116,10 +119,11 @@ const toggleLed = async (req, res) =>
           message: 'Led updated!',
         })
       )
-      .catch((error) =>
+      .catch((e) =>
         res.status(404).json({
-          error,
-          message: 'Led not updated!',
+          e,
+          message:
+            'An error occurred while toggling the led. Please try again later!',
         })
       );
   });

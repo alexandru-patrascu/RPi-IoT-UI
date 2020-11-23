@@ -5,7 +5,7 @@ mongoose
     useUnifiedTopology: true,
     useNewUrlParser: true,
   })
-  .catch((e) => console.error('Connection error', e.message));
+  .catch((e) => console.error('DB Connection error', e.message));
 
 const db = mongoose.connection;
 

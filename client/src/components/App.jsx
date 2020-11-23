@@ -27,7 +27,7 @@ const App = () => {
   }, []);
 
   if (isLoading) return <LoadingIndicator />;
-  console.log('leds', leds);
+
   return (
     <Layout className="layout-container">
       <SideBar />
