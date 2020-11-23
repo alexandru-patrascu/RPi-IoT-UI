@@ -1,7 +1,7 @@
 import { Tag } from 'antd';
 import React from 'react';
-import DeleteLed from '../components/DeleteLed';
-import ToggleLed from '../components/ToggleLed';
+import DeleteLed from '../components/leds/DeleteLed';
+import ToggleLed from '../components/leds/ToggleLed';
 
 export const columns = [
   {
