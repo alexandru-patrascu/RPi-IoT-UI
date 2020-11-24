@@ -64,4 +64,4 @@ const deleteLed = (_id) =>
       .catch(reject)
   );
 
-export { createLed, getLeds, toggleLed, deleteLed };
+export { createLed, getLeds, updateLed, toggleLed, deleteLed };
