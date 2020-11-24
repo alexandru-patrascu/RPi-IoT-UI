@@ -41,7 +41,7 @@ const UpdateLedModal = () => {
       setShowUpdateLedModal(false);
 
       // Send notification
-      message.success(`Successfully update led ${data.name}`);
+      message.success(`Successfully updated led ${data.name}`);
     } else {
       message.error(
         `An error occurred while updating led ${currentLed.name}. Please try again later.`
