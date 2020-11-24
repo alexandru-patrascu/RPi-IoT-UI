@@ -1,10 +1,9 @@
-import { Form, Input, InputNumber, message, Modal, Select, Spin } from 'antd';
+import { Form, Input, InputNumber, message, Modal, Spin } from 'antd';
 import React, { useContext, useEffect, useState } from 'react';
 import { updateLed } from '../../handlers/ledHandlers';
 import { LedsContext } from '../../helpers';
 
 const { Item } = Form;
-const { Option } = Select;
 
 const UpdateLedModal = () => {
   const {
@@ -28,7 +27,6 @@ const UpdateLedModal = () => {
       setIsLoading(false);
     }
   }, [currentLed]);
-  console.log('initialValues', initialValues);
 
   const handleOk = async () => {
     const response = await updateLed(initialValues);
