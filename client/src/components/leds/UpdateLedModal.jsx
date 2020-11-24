@@ -1,60 +1,93 @@
-import { Form, Input, InputNumber, message, Modal } from 'antd';
-import React, { useContext, useState } from 'react';
-import { createLed } from '../../handlers/ledHandlers';
+import { Form, Input, InputNumber, message, Modal, Select, Spin } from 'antd';
+import React, { useContext, useEffect, useState } from 'react';
+import { updateLed } from '../../handlers/ledHandlers';
 import { LedsContext } from '../../helpers';
 
 const { Item } = Form;
+const { Option } = Select;
 
 const UpdateLedModal = () => {
   const {
     leds,
     setLeds,
+    currentLed,
     showUpdateLedModal,
     setShowUpdateLedModal,
   } = useContext(LedsContext);
+  const [isLoading, setIsLoading] = useState(true);
+  const [initialValues, setInitialValues] = useState(null);
 
-  const [initialValues, setInitialValues] = useState({
-    name: '',
-    gpioPin: 0,
-  });
+  const init = () => {
+    setInitialValues(null);
+    setIsLoading(true);
+  };
+
+  useEffect(() => {
+    if (currentLed) {
+      setInitialValues(currentLed);
+      setIsLoading(false);
+    }
+  }, [currentLed]);
+  console.log('initialValues', initialValues);
 
   const handleOk = async () => {
-    const response = await createLed(initialValues);
+    const response = await updateLed(initialValues);
     const { success } = response;
 
     if (success) {
+      const { data } = response;
+      const oldLeds = leds.filter((led) => led._id !== data._id);
+
       // Update UI
-      setLeds([...leds, response.data]);
+      setLeds([...oldLeds, data]);
       setShowUpdateLedModal(false);
 
       // Send notification
-      message.success(`Successfully created led ${initialValues.name}`);
+      message.success(`Successfully update led ${data.name}`);
+    } else {
+      message.error(
+        `An error occurred while updating led ${currentLed.name}. Please try again later.`
+      );
     }
+
+    init();
   };
-  const handleCancel = () => setShowUpdateLedModal(false);
+
+  const handleCancel = () => {
+    init();
+    setShowUpdateLedModal(false);
+  };
+
   const handleValuesChange = (changedValue, changedValues) =>
-    setInitialValues(changedValues);
+    setInitialValues({ ...currentLed, ...changedValues });
 
   return (
     <Modal
       centered
-      title="Add Led"
+      title="Edit Led"
       visible={showUpdateLedModal}
       onOk={handleOk}
       onCancel={handleCancel}
     >
-      <Form
-        layout="vertical"
-        initialValues={initialValues}
-        onValuesChange={handleValuesChange}
-      >
-        <Item label="Name" name="name" required>
-          <Input placeholder="Name" />
-        </Item>
-        <Item label="Gpio Pin Number" name="gpioPin" required>
-          <InputNumber />
-        </Item>
-      </Form>
+      {isLoading ? (
+        <Spin size="large" />
+      ) : (
+        <Form
+          layout="vertical"
+          initialValues={initialValues}
+          onValuesChange={handleValuesChange}
+        >
+          <Item label="Id" name="_id">
+            <Input disabled value="Id" />
+          </Item>
+          <Item label="Gpio Pin Number" name="gpioPin" required>
+            <InputNumber />
+          </Item>
+          <Item label="Name" name="name" required>
+            <Input placeholder="Name" />
+          </Item>
+        </Form>
+      )}
     </Modal>
   );
 };

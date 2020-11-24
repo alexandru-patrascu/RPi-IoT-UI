@@ -53,7 +53,7 @@ const updateOne = async (req, res) => {
       error: 'You must provide a body in order to perform the led update',
     });
 
-  Led.findOne({ _id: req.params._id }, (err, led) => {
+  Led.findOne({ _id: body._id }, (err, led) => {
     if (err || !led)
       return res.status(404).json({
         err,
@@ -68,7 +68,7 @@ const updateOne = async (req, res) => {
       .then(() =>
         res.status(200).json({
           success: true,
-          _id: led._id,
+          data: led,
         })
       )
       .catch((error) =>
