@@ -4,8 +4,6 @@ import React, { useContext } from 'react';
 import { deleteLed } from '../../handlers/ledHandlers';
 import { LedsContext } from '../../helpers';
 
-// import { deleteLed } from "../requests"
-
 const DeleteLed = (props) => {
   const { _id, name } = props;
   const { leds, setLeds } = useContext(LedsContext);

@@ -1,6 +1,6 @@
 import { Tag } from 'antd';
 import React from 'react';
-import { DeleteLed, ToggleLed } from '../components/leds';
+import { DeleteLed, ToggleLed, UpdateLed } from '../components/leds';
 
 export const columns = [
   {
@@ -10,10 +10,10 @@ export const columns = [
     sorter: (a, b) => a.name.localeCompare(b.name),
   },
   {
-    title: 'Gpio',
+    title: 'Gpio Pin',
     dataIndex: 'gpioPin',
     key: 'gpioPin',
-    sorter: (a, b) => a.name.localeCompare(b.name),
+    sorter: (a, b) => a.gpioPin > b.gpioPin,
   },
   {
     title: 'Status',
@@ -38,6 +38,12 @@ export const columns = [
     key: 'toggle',
     align: 'center',
     render: (props) => <ToggleLed {...props} />,
+  },
+  {
+    title: 'Edit',
+    key: 'edit',
+    align: 'center',
+    render: (props) => <UpdateLed {...props} />,
   },
   {
     title: 'Delete',

@@ -28,7 +28,21 @@ const toggleLed = (_id) =>
 
 const createLed = (led) =>
   new Promise((resolve, reject) =>
-    fetch(`http://localhost:8000/api/led`, {
+    fetch('http://localhost:8000/api/led', {
+      method: 'PUT',
+      headers,
+      body: JSON.stringify(led),
+    })
+      .then(async (res) => {
+        const response = await res.json();
+        return resolve(response);
+      })
+      .catch(reject)
+  );
+
+const updateLed = (led) =>
+  new Promise((resolve, reject) =>
+    fetch('http://localhost:8000/api/led', {
       method: 'POST',
       headers,
       body: JSON.stringify(led),
@@ -49,4 +63,5 @@ const deleteLed = (_id) =>
       .then((res) => resolve(res.status))
       .catch(reject)
   );
-export { createLed, getLeds, toggleLed, deleteLed };
+
+export { createLed, getLeds, updateLed, toggleLed, deleteLed };
