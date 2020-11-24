@@ -11,7 +11,7 @@ const UpdateLed = (props) => {
   const handleClick = () => setShowUpdateLedModal(true);
 
   return (
-    <Button size="small" type="link">
+    <Button size="small" type="link" onClick={handleClick}>
       <EditOutlined />
     </Button>
   );
