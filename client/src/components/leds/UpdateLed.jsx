@@ -1,4 +1,4 @@
-import { EditOutlined } from '@ant-design/icons';
+import { SettingOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import React, { useContext } from 'react';
 import { LedsContext } from '../../helpers';
@@ -13,7 +13,7 @@ const UpdateLed = (props) => {
 
   return (
     <Button size="small" type="link" onClick={handleClick}>
-      <EditOutlined />
+      <SettingOutlined />
     </Button>
   );
 };

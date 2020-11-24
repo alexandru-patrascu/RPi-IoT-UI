@@ -40,15 +40,14 @@ export const columns = [
     render: (props) => <ToggleLed {...props} />,
   },
   {
-    title: 'Edit',
-    key: 'edit',
+    title: 'Actions',
+    key: 'actions',
     align: 'center',
-    render: (props) => <UpdateLed {...props} />,
-  },
-  {
-    title: 'Delete',
-    key: 'delete',
-    align: 'center',
-    render: (props) => <DeleteLed {...props} />,
+    render: (props) => (
+      <>
+        <UpdateLed {...props} />
+        <DeleteLed {...props} />
+      </>
+    ),
   },
 ];

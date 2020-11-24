@@ -62,7 +62,7 @@ const UpdateLedModal = () => {
   return (
     <Modal
       centered
-      title="Edit Led"
+      title="Change led's settings"
       visible={showUpdateLedModal}
       onOk={handleOk}
       onCancel={handleCancel}

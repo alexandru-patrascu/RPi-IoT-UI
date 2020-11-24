@@ -30,7 +30,7 @@ const DeleteLed = (props) => {
       onConfirm={handleConfirm}
       okText="Yes"
     >
-      <Button ghost size="small" type="primary" className="delete-button">
+      <Button ghost size="small" type="link">
         <DeleteOutlined />
       </Button>
     </Popconfirm>
