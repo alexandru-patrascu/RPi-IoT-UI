@@ -40,6 +40,16 @@ const createLed = (led) =>
       .catch(reject)
   );
 
+const updateLed = (_id) =>
+  new Promise((resolve, reject) =>
+    fetch(`http://localhost:8000/api/led/${_id}`, {
+      method: 'DELETE',
+      headers,
+    })
+      .then((res) => resolve(res.status))
+      .catch(reject)
+  );
+
 const deleteLed = (_id) =>
   new Promise((resolve, reject) =>
     fetch(`http://localhost:8000/api/led/${_id}`, {
@@ -49,4 +59,5 @@ const deleteLed = (_id) =>
       .then((res) => resolve(res.status))
       .catch(reject)
   );
+
 export { createLed, getLeds, toggleLed, deleteLed };
