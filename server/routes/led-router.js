@@ -5,8 +5,8 @@ const router = express.Router();
 
 router.get('/leds', LedCtrl.getAll);
 router.get('/led/:_id', LedCtrl.getOne);
-router.post('/led', LedCtrl.createOne);
-router.put('/led/:_id', LedCtrl.updateOne);
+router.put('/led', LedCtrl.createOne);
+router.post('/led', LedCtrl.updateOne);
 router.put('/toggle-led/:_id', LedCtrl.toggleLed);
 router.delete('/led/:_id', LedCtrl.deleteOne);
 
