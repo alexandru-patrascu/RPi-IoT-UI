@@ -2,10 +2,10 @@ import { Layout } from 'antd';
 import React, { useCallback, useEffect, useState } from 'react';
 import { getLeds } from '../handlers/ledHandlers';
 import { LedsContext } from '../helpers';
-import { AddLedModal, LedsTable } from './leds';
-import UpdateLedModal from './leds/UpdateLedModal';
+import { AddLedModal, LedsTable, UpdateLedModal } from './leds';
 import LoadingIndicator from './LoadingIndicator';
 import SideBar from './SideBar';
+
 const { Header, Content, Footer } = Layout;
 
 const App = () => {
