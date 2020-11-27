@@ -1,9 +1,10 @@
 import { Layout } from 'antd';
 import React, { useCallback, useEffect, useState } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import { getLeds } from '../handlers/ledHandlers';
 import { LedsContext } from '../helpers';
-import { AddLedModal, LedsTable, UpdateLedModal } from './leds';
 import LoadingIndicator from './LoadingIndicator';
+import { Bedroom, BedroomLights, Dashboard, Home, NotFound } from './pages';
 import SideBar from './SideBar';
 
 const { Header, Content, Footer } = Layout;
@@ -53,9 +54,13 @@ const App = () => {
               setShowUpdateLedModal,
             }}
           >
-            <LedsTable />
-            <AddLedModal />
-            <UpdateLedModal />
+            <Switch>
+              <Route path="/" component={Home} exact />
+              <Route path="/dashboard" component={Dashboard} />
+              <Route path="/bedroom" component={Bedroom} exact />
+              <Route path="/bedroom/lights" component={BedroomLights} />
+              <Route component={NotFound} />
+            </Switch>
           </LedsContext.Provider>
         </Content>
 
