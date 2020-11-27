@@ -5,6 +5,7 @@ import {
 } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const { SubMenu, Item } = Menu;
 const { Sider } = Layout;
@@ -12,14 +13,15 @@ const { Sider } = Layout;
 const SideBar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selectedKey, setSelectedKey] = useState(['/dashboard']);
+  let history = useHistory();
 
   const handleCollapse = (collapsed) => setIsCollapsed(collapsed);
 
-  const handleItemClick = (e) => {
+  const handleClick = (e) => {
     const { key, keyPath } = e;
-    setSelectedKey(keyPath);
 
-    // TODO: Redirect to key
+    setSelectedKey(keyPath);
+    history.push(key);
   };
 
   return (
@@ -31,23 +33,23 @@ const SideBar = () => {
         <Item
           key="/dashboard"
           icon={<PieChartOutlined />}
-          onClick={handleItemClick}
+          onClick={handleClick}
         >
           Dashboard
         </Item>
         <SubMenu icon={<ClusterOutlined />} title="Bedroom">
-          <Item key="/bedroom/overview" onClick={handleItemClick}>
+          <Item key="/bedroom" onClick={handleClick}>
             Overview
           </Item>
-          <Item key="/bedroom/lights" onClick={handleItemClick}>
+          <Item key="/bedroom/lights" onClick={handleClick}>
             Lights
           </Item>
         </SubMenu>
         <SubMenu icon={<TableOutlined />} title="Kitchen">
-          <Item key="/kitchen/overview" onClick={handleItemClick}>
+          <Item key="/kitchen/overview" onClick={handleClick}>
             Overview
           </Item>
-          <Item key="/kitchen/lights" onClick={handleItemClick}>
+          <Item key="/kitchen/lights" onClick={handleClick}>
             Lights
           </Item>
         </SubMenu>
