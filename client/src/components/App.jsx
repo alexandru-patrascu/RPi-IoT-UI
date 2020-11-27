@@ -3,8 +3,8 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { getLeds } from '../handlers/ledHandlers';
 import { LedsContext } from '../helpers';
-import { AddLedModal, LedsTable, UpdateLedModal } from './leds';
 import LoadingIndicator from './LoadingIndicator';
+import { Bedroom, BedroomLights, Dashboard, Home, NotFound } from './pages';
 import SideBar from './SideBar';
 
 const { Header, Content, Footer } = Layout;
@@ -73,29 +73,4 @@ const App = () => {
   );
 };
 
-const Home = () => {
-  return <h2>Home</h2>;
-};
-
-const Dashboard = () => {
-  return <h2>Dashboard</h2>;
-};
-
-const Bedroom = () => {
-  return <h2>BedroomOverview</h2>;
-};
-
-const BedroomLights = () => {
-  return (
-    <>
-      <LedsTable />
-      <AddLedModal />
-      <UpdateLedModal />
-    </>
-  );
-};
-
-const NotFound = () => {
-  return <h2>NotFound</h2>;
-};
 export default App;
