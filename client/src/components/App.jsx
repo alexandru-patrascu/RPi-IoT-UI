@@ -1,5 +1,6 @@
 import { Layout } from 'antd';
 import React, { useCallback, useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { getLeds } from '../handlers/ledHandlers';
 import { LedsContext } from '../helpers';
 import { AddLedModal, LedsTable, UpdateLedModal } from './leds';
@@ -53,9 +54,22 @@ const App = () => {
               setShowUpdateLedModal,
             }}
           >
-            <LedsTable />
-            <AddLedModal />
-            <UpdateLedModal />
+            <Router>
+              <Switch>
+                <Route path="/about">
+                  <About />
+                </Route>
+                <Route path="/users">
+                  <Users />
+                </Route>
+                <Route path="/dashboard">
+                  <Dashboard />
+                </Route>
+                <Route path="/">
+                  <Home />
+                </Route>
+              </Switch>
+            </Router>
           </LedsContext.Provider>
         </Content>
 
@@ -65,6 +79,28 @@ const App = () => {
         </Footer>
       </Layout>
     </Layout>
+  );
+};
+
+function Home() {
+  return <h2>Home</h2>;
+}
+
+function About() {
+  return <h2>About</h2>;
+}
+
+function Users() {
+  return <h2>Users</h2>;
+}
+
+const Dashboard = () => {
+  return (
+    <>
+      <LedsTable />
+      <AddLedModal />
+      <UpdateLedModal />
+    </>
   );
 };
 
