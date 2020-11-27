@@ -1,6 +1,6 @@
 import { Layout } from 'antd';
 import React, { useCallback, useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { getLeds } from '../handlers/ledHandlers';
 import { LedsContext } from '../helpers';
 import { AddLedModal, LedsTable, UpdateLedModal } from './leds';
@@ -54,22 +54,13 @@ const App = () => {
               setShowUpdateLedModal,
             }}
           >
-            <Router>
-              <Switch>
-                <Route path="/about">
-                  <About />
-                </Route>
-                <Route path="/users">
-                  <Users />
-                </Route>
-                <Route path="/dashboard">
-                  <Dashboard />
-                </Route>
-                <Route path="/">
-                  <Home />
-                </Route>
-              </Switch>
-            </Router>
+            <Switch>
+              <Route path="/" component={Home} exact />
+              <Route path="/dashboard" component={Dashboard} />
+              <Route path="/bedroom" component={Bedroom} exact />
+              <Route path="/bedroom/lights" component={BedroomLights} />
+              <Route component={NotFound} />
+            </Switch>
           </LedsContext.Provider>
         </Content>
 
@@ -82,19 +73,19 @@ const App = () => {
   );
 };
 
-function Home() {
+const Home = () => {
   return <h2>Home</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
-}
+};
 
 const Dashboard = () => {
+  return <h2>Dashboard</h2>;
+};
+
+const Bedroom = () => {
+  return <h2>BedroomOverview</h2>;
+};
+
+const BedroomLights = () => {
   return (
     <>
       <LedsTable />
@@ -104,4 +95,7 @@ const Dashboard = () => {
   );
 };
 
+const NotFound = () => {
+  return <h2>NotFound</h2>;
+};
 export default App;
