@@ -1,13 +1,13 @@
 import { Form, Input, InputNumber, message, Modal } from 'antd';
 import React, { useContext, useState } from 'react';
 import { createLed } from '../../handlers/light.handler';
-import { LedsContext } from '../../helpers';
+import { LightContext } from '../../helpers';
 
 const { Item } = Form;
 
 const AddLightModal = () => {
   const { leds, setLeds, showAddLedModal, setShowAddLedModal } = useContext(
-    LedsContext
+    LightContext
   );
 
   const [initialValues, setInitialValues] = useState({

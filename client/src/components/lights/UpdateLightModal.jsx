@@ -1,7 +1,7 @@
 import { Form, Input, InputNumber, message, Modal, Spin } from 'antd';
 import React, { useContext, useEffect, useState } from 'react';
 import { updateLed } from '../../handlers/light.handler';
-import { LedsContext } from '../../helpers';
+import { LightContext } from '../../helpers';
 
 const { Item } = Form;
 
@@ -12,7 +12,7 @@ const UpdateLightModal = () => {
     currentLed,
     showUpdateLedModal,
     setShowUpdateLedModal,
-  } = useContext(LedsContext);
+  } = useContext(LightContext);
   const [isLoading, setIsLoading] = useState(true);
   const [initialValues, setInitialValues] = useState(null);
 

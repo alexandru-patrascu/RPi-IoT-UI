@@ -1,11 +1,11 @@
 import { message, Switch } from 'antd';
 import React, { useContext } from 'react';
 import { toggleLed } from '../../handlers/light.handler';
-import { LedsContext } from '../../helpers';
+import { LightContext } from '../../helpers';
 
 const ToggleLight = (props) => {
   let { _id, name, status } = props;
-  const { leds, setLeds } = useContext(LedsContext);
+  const { leds, setLeds } = useContext(LightContext);
 
   const handleSwitch = async (value) => {
     const toggleStatus = await toggleLed(_id);

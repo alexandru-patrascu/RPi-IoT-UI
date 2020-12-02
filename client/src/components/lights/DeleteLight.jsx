@@ -2,11 +2,11 @@ import { DeleteOutlined } from '@ant-design/icons';
 import { Button, message, Popconfirm } from 'antd';
 import React, { useContext } from 'react';
 import { deleteLed } from '../../handlers/light.handler';
-import { LedsContext } from '../../helpers';
+import { LightContext } from '../../helpers';
 
 const DeleteLight = (props) => {
   const { _id, name } = props;
-  const { leds, setLeds } = useContext(LedsContext);
+  const { leds, setLeds } = useContext(LightContext);
 
   const handleConfirm = async () => {
     const response = await deleteLed(_id);

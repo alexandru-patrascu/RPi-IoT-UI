@@ -1,10 +1,10 @@
 import { SettingOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import React, { useContext } from 'react';
-import { LedsContext } from '../../helpers';
+import { LightContext } from '../../helpers';
 
 const UpdateLight = (props) => {
-  const { setCurrentLed, setShowUpdateLedModal } = useContext(LedsContext);
+  const { setCurrentLed, setShowUpdateLedModal } = useContext(LightContext);
 
   const handleClick = () => {
     setCurrentLed(props);

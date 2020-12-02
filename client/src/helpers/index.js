@@ -1,1 +1,1 @@
-export * from '../helpers/LedsContext';
+export * from './LightContext';
