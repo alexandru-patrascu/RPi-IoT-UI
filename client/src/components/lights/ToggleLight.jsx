@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { toggleLed } from '../../handlers/ledHandlers';
 import { LedsContext } from '../../helpers';
 
-const ToggleLed = (props) => {
+const ToggleLight = (props) => {
   let { _id, name, status } = props;
   const { leds, setLeds } = useContext(LedsContext);
 
@@ -24,4 +24,4 @@ const ToggleLed = (props) => {
   return <Switch size="small" checked={status} onChange={handleSwitch} />;
 };
 
-export default ToggleLed;
+export default ToggleLight;

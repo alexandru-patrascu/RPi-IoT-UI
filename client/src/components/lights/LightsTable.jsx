@@ -17,7 +17,7 @@ const CardExtra = ({ handleClick }) => (
   </Button>
 );
 
-const LedsTable = () => {
+const LightsTable = () => {
   const { leds, setShowAddLedModal } = useContext(LedsContext);
   const title = <CardTitle count={leds.length} />;
 
@@ -35,4 +35,4 @@ const LedsTable = () => {
   );
 };
 
-export default LedsTable;
+export default LightsTable;

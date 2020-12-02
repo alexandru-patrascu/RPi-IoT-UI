@@ -5,7 +5,7 @@ import { LedsContext } from '../../helpers';
 
 const { Item } = Form;
 
-const UpdateLedModal = () => {
+const UpdateLightModal = () => {
   const {
     leds,
     setLeds,
@@ -90,4 +90,4 @@ const UpdateLedModal = () => {
   );
 };
 
-export default UpdateLedModal;
+export default UpdateLightModal;

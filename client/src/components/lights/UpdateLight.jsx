@@ -3,7 +3,7 @@ import { Button } from 'antd';
 import React, { useContext } from 'react';
 import { LedsContext } from '../../helpers';
 
-const UpdateLed = (props) => {
+const UpdateLight = (props) => {
   const { setCurrentLed, setShowUpdateLedModal } = useContext(LedsContext);
 
   const handleClick = () => {
@@ -18,4 +18,4 @@ const UpdateLed = (props) => {
   );
 };
 
-export default UpdateLed;
+export default UpdateLight;

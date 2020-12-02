@@ -4,7 +4,7 @@ import React, { useContext } from 'react';
 import { deleteLed } from '../../handlers/ledHandlers';
 import { LedsContext } from '../../helpers';
 
-const DeleteLed = (props) => {
+const DeleteLight = (props) => {
   const { _id, name } = props;
   const { leds, setLeds } = useContext(LedsContext);
 
@@ -37,4 +37,4 @@ const DeleteLed = (props) => {
   );
 };
 
-export default DeleteLed;
+export default DeleteLight;
