@@ -3,7 +3,7 @@ const headers = {
   'Content-Type': 'application/json',
 };
 
-const getLeds = new Promise((resolve, reject) =>
+const getLights = new Promise((resolve, reject) =>
   fetch('http://localhost:8000/api/leds', {
     method: 'GET',
     headers,
@@ -16,7 +16,7 @@ const getLeds = new Promise((resolve, reject) =>
     .catch(reject)
 );
 
-const toggleLed = (_id) =>
+const toggleLight = (_id) =>
   new Promise((resolve, reject) =>
     fetch(`http://localhost:8000/api/toggle-led/${_id}`, {
       method: 'PUT',
@@ -26,7 +26,7 @@ const toggleLed = (_id) =>
       .catch(reject)
   );
 
-const createLed = (led) =>
+const createLight = (led) =>
   new Promise((resolve, reject) =>
     fetch('http://localhost:8000/api/led', {
       method: 'PUT',
@@ -40,7 +40,7 @@ const createLed = (led) =>
       .catch(reject)
   );
 
-const updateLed = (led) =>
+const updateLight = (led) =>
   new Promise((resolve, reject) =>
     fetch('http://localhost:8000/api/led', {
       method: 'POST',
@@ -54,7 +54,7 @@ const updateLed = (led) =>
       .catch(reject)
   );
 
-const deleteLed = (_id) =>
+const deleteLight = (_id) =>
   new Promise((resolve, reject) =>
     fetch(`http://localhost:8000/api/led/${_id}`, {
       method: 'DELETE',
@@ -64,4 +64,4 @@ const deleteLed = (_id) =>
       .catch(reject)
   );
 
-export { createLed, getLeds, updateLed, toggleLed, deleteLed };
+export { createLight, getLights, updateLight, toggleLight, deleteLight };

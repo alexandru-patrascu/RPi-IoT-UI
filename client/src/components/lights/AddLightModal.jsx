@@ -1,6 +1,6 @@
 import { Form, Input, InputNumber, message, Modal } from 'antd';
 import React, { useContext, useState } from 'react';
-import { createLed } from '../../handlers/ledHandlers';
+import { createLed } from '../../handlers/light.handler';
 import { LedsContext } from '../../helpers';
 
 const { Item } = Form;

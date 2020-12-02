@@ -1,6 +1,6 @@
 import { message, Switch } from 'antd';
 import React, { useContext } from 'react';
-import { toggleLed } from '../../handlers/ledHandlers';
+import { toggleLed } from '../../handlers/light.handler';
 import { LedsContext } from '../../helpers';
 
 const ToggleLight = (props) => {

@@ -1,7 +1,7 @@
 import { DeleteOutlined } from '@ant-design/icons';
 import { Button, message, Popconfirm } from 'antd';
 import React, { useContext } from 'react';
-import { deleteLed } from '../../handlers/ledHandlers';
+import { deleteLed } from '../../handlers/light.handler';
 import { LedsContext } from '../../helpers';
 
 const DeleteLight = (props) => {
