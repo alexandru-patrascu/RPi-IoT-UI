@@ -4,7 +4,7 @@ const headers = {
 };
 
 const getLights = new Promise((resolve, reject) =>
-  fetch('http://localhost:8000/api/leds', {
+  fetch('http://localhost:8000/api/lights', {
     method: 'GET',
     headers,
   })
@@ -18,7 +18,7 @@ const getLights = new Promise((resolve, reject) =>
 
 const toggleLight = (_id) =>
   new Promise((resolve, reject) =>
-    fetch(`http://localhost:8000/api/toggle-led/${_id}`, {
+    fetch(`http://localhost:8000/api/toggle-light/${_id}`, {
       method: 'PUT',
       headers,
     })
@@ -26,12 +26,12 @@ const toggleLight = (_id) =>
       .catch(reject)
   );
 
-const createLight = (led) =>
+const createLight = (light) =>
   new Promise((resolve, reject) =>
-    fetch('http://localhost:8000/api/led', {
+    fetch('http://localhost:8000/api/light', {
       method: 'PUT',
       headers,
-      body: JSON.stringify(led),
+      body: JSON.stringify(light),
     })
       .then(async (res) => {
         const response = await res.json();
@@ -40,12 +40,12 @@ const createLight = (led) =>
       .catch(reject)
   );
 
-const updateLight = (led) =>
+const updateLight = (light) =>
   new Promise((resolve, reject) =>
-    fetch('http://localhost:8000/api/led', {
+    fetch('http://localhost:8000/api/light', {
       method: 'POST',
       headers,
-      body: JSON.stringify(led),
+      body: JSON.stringify(light),
     })
       .then(async (res) => {
         const response = await res.json();
@@ -56,7 +56,7 @@ const updateLight = (led) =>
 
 const deleteLight = (_id) =>
   new Promise((resolve, reject) =>
-    fetch(`http://localhost:8000/api/led/${_id}`, {
+    fetch(`http://localhost:8000/api/light/${_id}`, {
       method: 'DELETE',
       headers,
     })
