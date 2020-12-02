@@ -1,6 +1,6 @@
-export { default as AddLedModal } from './AddLedModal';
-export { default as DeleteLed } from './DeleteLed';
-export { default as LedsTable } from './LedsTable';
-export { default as ToggleLed } from './ToggleLed';
-export { default as UpdateLed } from './UpdateLed';
-export { default as UpdateLedModal } from './UpdateLedModal';
+export { default as AddLightModal } from './AddLightModal';
+export { default as DeleteLight } from './DeleteLight';
+export { default as LightsTable } from './LightsTable';
+export { default as ToggleLight } from './ToggleLight';
+export { default as UpdateLight } from './UpdateLight';
+export { default as UpdateLightModal } from './UpdateLightModal';
