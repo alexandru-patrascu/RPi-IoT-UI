@@ -11,10 +11,10 @@ const { Header, Content, Footer } = Layout;
 
 const App = () => {
   const [leds, setLeds] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [currentLed, setCurrentLed] = useState(null);
   const [showAddLedModal, setShowAddLedModal] = useState(false);
   const [showUpdateLedModal, setShowUpdateLedModal] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
   const fetchLeds = useCallback(async () => {
     try {
